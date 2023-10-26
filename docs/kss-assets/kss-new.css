@@ -1,0 +1,45 @@
+:root {
+  --kss-font-family: 'Inter', sans-serif;
+  --kss-color-headings: rgb(23, 23, 23);
+  --kss-color-text: rgb(102, 102, 102);
+  --kss-color-accent-2: #EAEAEA;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.kss-title,
+.kss-description,
+.kss-modifier__name {
+  font-family: var(--kss-font-family);
+  line-height: 1.5rem;
+}
+
+.kss-title {
+  color: var(--kss-color-headings);
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.79px;
+}
+
+.kss-title--level-3 {
+  font-size: 1.25rem;
+  letter-spacing: -0.33px
+}
+
+.kss-description {
+  color: var(--kss-font-color-text);
+  line-height: 1.5rem;
+}
+
+.kss-modifier__example {
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border: solid 1px var(--kss-color-accent-2);
+}
+
+.kss-style--header {
+  max-width: 75%;
+}

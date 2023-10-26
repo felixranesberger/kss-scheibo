@@ -7,7 +7,7 @@
   "destination"     : "docs",
   "homepage"        : "kss_styleguide/kss-homepage.md",
   "custom"          : ["Colors", "Wrapper", "RequireJS", "BodyClass", "HtmlLang"],
-  "css"             : ["kss-assets/docs.css"],
+  "css"             : ["kss-assets/docs.css", "kss-assets/kss-new.css"],
   "js"              : ["kss-assets/main.js"],
   "scriptModule"    : true,
   "isVitePugEnabled": false

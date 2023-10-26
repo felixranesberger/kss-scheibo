@@ -12,13 +12,10 @@
   <link rel="stylesheet" href="kss-assets/prism.css">
   {{{styles}}}
 </head>
-<body class="kss-scheibo__body" id="kss-node" {{#if template.isItem}}class="kss-fullscreen-mode"{{/if}}>
 
-<header class="kss-header">
-  <h1 class="kss-doc-title">{{options.title}}</h1>
-</header>
+<body id="kss-node" class="kss-scheibo__body" {{#if template.isItem}}class="kss-fullscreen-mode"{{/if}}>
 <div class="kss-container">
-  <div class="kss-sidebar kss-style">
+  <aside class="kss-sidebar kss-style">
     <div class="kss-search">
       <input type="text" class="kss-search__input" id="kss-search__input" placeholder="Search">
       <ul class="kss-search__list kss-nav__menu" id="kss-search__list">
@@ -82,7 +79,7 @@
       {{/each}}
       </ul>
     </nav>
-  </div>
+  </aside>
   <main class="kss-main" aria-label="Content">
     <article>
     {{#if template.isHomepage}}
@@ -107,29 +104,6 @@
                 {{header}}
             </h{{depth}}>
           </a>
-          {{#if example}}
-            <p class="kss-toolbar">
-              {{#unless @root.template.isItem}}
-                <a class="kss-toolbar__link kss-toolbar__link--fullscreen" title="Toggle full screen" href="#kssref-{{referenceURI}}" data-kss-fullscreen="kssref-{{referenceURI}}">
-                  <span class="kss-toolbar__tooltip">Toggle full screen</span>
-                  <svg aria-hidden="true" class="kss-toolbar__svg kss-toolbar__off" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path class="kss-toolbar__icon-fill" d="M64 0v26l-10-10-12 12-6-6 12-12-10-10zM28 42l-12 12 10 10h-26v-26l10 10 12-12z"/></svg>
-                  <svg aria-hidden="true" class="kss-toolbar__svg kss-toolbar__on" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path class="kss-toolbar__icon-fill" d="M28 36v26l-10-10-12 12-6-6 12-12-10-10zM64 6l-12 12 10 10h-26v-26l10 10 12-12z"/></svg>
-                </a>
-                <a class="kss-toolbar__link kss-toolbar__link--newwindow" title="Open in new window" href="item-{{referenceURI}}.html" target="_blank">
-                  <span class="kss-toolbar__tooltip">Open in new window</span>
-                  <svg aria-hidden="true" class="kss-toolbar__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path fill="#fff" d="M0 20H40V64H0z"/><path class="kss-toolbar__icon-fill" d="M40,64l-40,0l0,-44l40,0l0,44Zm-36,-40l0,36l32,0l0,-36l-32,0Z"/><path class="kss-toolbar__icon-fill" d="M0 20H40V30H0z"/><path fill="#fff" d="M24 0H64V44H24z"/><path class="kss-toolbar__icon-fill" d="M64,44l-40,0l0,-44l40,0l0,44Zm-36,-40l0,36l32,0l0,-36l-32,0Z"/><path class="kss-toolbar__icon-fill" d="M24 0H64V10H24z"/></svg>
-                </a>
-              {{/unless}}
-              <a class="kss-toolbar__link kss-toolbar__link--guides" title="Toggle example guides" href="#kssref-{{referenceURI}}" data-kss-guides="true">
-                <span class="kss-toolbar__tooltip">Toggle example guides</span>
-                <svg aria-hidden="true" class="kss-toolbar__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path class="kss-toolbar__icon-fill" d="M5 35H10V44H5zM54 21H59V30H54zM54 35H59V44H54zM5 21H10V30H5zM5 0H10V15H5zM35 5H44V10H35zM20 5H29V10H20z"/><path class="kss-toolbar__icon-fill" d="M0 5H15V10H0zM54 0H59V15H54z"/><path class="kss-toolbar__icon-fill" d="M49 5H64V10H49zM54 49H59V64H54z"/><path class="kss-toolbar__icon-fill" d="M49 54H64V59H49zM5 49H10V64H5z"/><path class="kss-toolbar__icon-fill" d="M0 54H15V59H0zM35 54H44V59H35zM20 54H29V59H20z"/></svg>
-              </a>
-              <a class="kss-toolbar__link kss-toolbar__link--markup" title="Toggle HTML markup" href="#kssref-{{referenceURI}}" data-kss-markup="true">
-                <span class="kss-toolbar__tooltip">Toggle HTML markup</span>
-                <svg aria-hidden="true" class="kss-toolbar__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path class="kss-toolbar__icon-fill" d="M37.555 46.239l6.103 6.103 20.342-20.342-20.342-20.342-6.103 6.103 14.24 14.239-14.24 14.239zM26.445 17.761l-6.103-6.103-20.342 20.342 20.342 20.342 6.103-6.103-14.24-14.239 14.24-14.239z"/></svg>
-              </a>
-            </p>
-          {{/if}}
 
           {{#if description}}
             <div class="kss-description">
@@ -181,6 +155,14 @@
               {{{modifierFullscreenButton header (modifierInsertSection markup ../sections ../styleGuide ../options.source) referenceURI 'default' '' requirejs ../options.requirejs bodyclass ../options.bodyclass ../options.htmllang}}}
             </div>
 
+
+          {{#if modifiers}}
+              <div class="kss-modifier__header">
+                  <h3 class="kss-title kss-title--level-3">
+                      Default
+                  </h3>
+              </div>
+          {{/if}}
             <div class="kss-modifier__example {{modifierBodyClass bodyclass ../options.bodyclass}}">
               {{#kssWrapper wrapper ''}}
                 {{{modifierInsertSection example ../sections ../styleGuide ../options.source}}}
@@ -190,12 +172,10 @@
             {{#each modifiers}}
               <div class="kss-modifier__header">
                 <div>
-                  <div class="kss-modifier__name kss-style">
-                    {{name}}
-                  </div>
-                  <div class="kss-modifier__description kss-style">
+                  <h3 class="kss-title kss-title--level-3">
                     {{{description}}}
-                  </div>
+                  </h3>
+                    <pre class="kss-modifier__name kss-style">{{name}}</pre>
                   <div class="kss-modifier__insertmarkuptext kss-style">
                     {{modifierInsertCode ../referenceURI @key}}
                   </div>

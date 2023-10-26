@@ -1,37 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
 @tailwind components;
 @tailwind utilities;
 
 :root {
   --kss-scheibo--maincolor: #1B7AC8;
   --kss-scheibo--maincolor-con: #FFFFFF;
+  --kss-font-family: 'Inter', sans-serif;
+  --kss-font-color-headings: rgb(23, 23, 23);
+  --kss-font-color-text: rgb(102, 102, 102);
 }
 
 .kss-scheibo__body {
-  @apply overflow-auto m-0 bg-gray-50;
+  @apply overflow-auto m-0;
 }
 
 a {
   @apply text-current;
 }
 
-.kss-header {
-  background-color: var(--kss-scheibo--maincolor);
-  color: var(--kss-scheibo--maincolor-con);
-  @apply font-arial px-4 py-1 overflow-hidden;
-}
-
-.kss-doc-title {
-  @apply text-2xl font-normal border-none mx-auto my-4 px-4;
-  color: var(--kss-scheibo--maincolor-con);
-  text-shadow: none;
-}
-
-.kss-style {
-  @apply font-arial text-gray-700;
-}
-
 .kss-style--header {
-  @apply bg-gray-300 p-8;
+  @apply px-8 pb-8;
 }
 
 .kss-style--maincolor {
@@ -44,7 +33,11 @@ a {
 }
 
 .kss-container {
-  @apply my-6 mx-auto px-4;
+  margin: 0 auto;
+  padding-inline: 2rem;
+  padding-block: 4rem 8rem;
+  min-height: 100vh;
+  max-width: 1250px;
 }
 
 .kss-nav__menu {
@@ -78,20 +71,25 @@ a {
 }
 
 .kss-main {
-  @apply bg-white shadow-md rounded-t-lg overflow-auto;
+  @apply bg-white rounded-t-lg overflow-auto;
 }
 
 .kss-title {
-  @apply font-arial border-none font-normal my-2;
+  @apply border-none mb-2;
+
+  color: var(--kss-font-color-headings);
   text-shadow: none;
+  font-family: var(--kss-font-family);
+  font-weight: 600;
+  letter-spacing: -0.79px;
 }
 
 .kss-title--level-1 {
-  @apply text-2xl;
+  @apply text-4xl;
 }
 
 .kss-title--level-2 {
-  @apply text-xl italic;
+  @apply text-3xl;
 }
 
 .kss-title__permalink {
@@ -106,44 +104,6 @@ a {
   @apply text-gray-700;
 }
 
-.kss-toolbar__link {
-  @apply inline-block rounded bg-gray-300 block p-2 px-4 m-1 text-center leading-none;
-}
-
-.kss-toolbar__link:hover {
-  @apply bg-gray-200;
-}
-
-.kss-guides-mode .kss-toolbar__link--guides,
-.kss-fullscreen-mode .kss-toolbar__link--fullscreen,
-.kss-markup-mode .kss-toolbar__link--markup {
-  @apply bg-blue-100;
-}
-
-.kss-toolbar__tooltip {
-  @apply hidden;
-}
-
-.kss-toolbar__on {
-  @apply hidden;
-}
-
-.kss-fullscreen-mode .kss-toolbar__on {
-  @apply inline;
-}
-
-.kss-fullscreen-mode .kss-toolbar__off {
-  @apply hidden;
-}
-
-.kss-toolbar__svg {
-  @apply w-4 h-4;
-}
-
-.kss-toolbar__icon-fill {
-  @apply text-black fill-current;
-}
-
 .kss-source,
 .kss-markup {
   @apply p-8 bg-gray-100 text-base;
@@ -154,7 +114,7 @@ a {
 }
 
 .kss-modifier__example {
-  @apply p-3 mb-8 py-10 border-solid border-gray-300 border-0 border-b relative;
+  @apply px-3 mb-8 py-10 border-solid border-gray-300 border-0 relative rounded-lg;
 }
 
 .kss-modifier__defaultinsertmarkuptext {
@@ -178,8 +138,7 @@ a {
   @apply opacity-100;
 }
 
-.kss-modifier__default-name,
-.kss-modifier__name {
+.kss-modifier__default-name {
   @apply font-bold px-3;
 }
 
@@ -187,7 +146,6 @@ a {
   @apply text-base;
 }
 
-.kss-modifier__description,
 .kss-modifier__insertmarkuptext {
   @apply px-3 italic text-sm;
 }
@@ -196,28 +154,23 @@ a {
   @apply p-8;
 }
 
-.kss-section {
-  @apply border-gray-300 border-0 border-b border-solid;
-}
-
 .kss-section--hidden {
    @apply hidden;
 }
 
-.kss-description {
-  @apply text-sm;
+.kss-section--depth-1 {
+  position: absolute;
+  inset-inline-start: -10000px;
+  inset-block-start: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
-.kss-fullscreen-mode .kss-header,
 .kss-fullscreen-mode .kss-sidebar,
 .kss-fullscreen-mode .kss-section:not(.is-fullscreen),
 .kss-fullscreen-mode .kss-github {
   @apply hidden;
-}
-
-.kss-fullscreen-mode .kss-container,
-.kss-fullscreen-mode .kss-main {
-  @apply w-full max-w-full p-0;
 }
 
 .kss-fullscreen-mode .kss-modifier__example {
@@ -310,10 +263,6 @@ a {
 }
 
 @screen md {
-
-  .kss-doc-title {
-    @apply font-arial container mx-auto;
-  }
 
   .kss-container {
     @apply container flex justify-between;
