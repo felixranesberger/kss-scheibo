@@ -147,7 +147,7 @@ a {
 }
 
 .kss-modifier__insertmarkuptext {
-  @apply px-3 italic text-sm;
+  @apply text-sm;
 }
 
 .kss-modifier__wrapper {

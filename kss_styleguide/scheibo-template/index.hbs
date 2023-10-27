@@ -148,6 +148,14 @@
 
         {{#if example}}
           <div class="kss-modifier__wrapper">
+              {{#if modifiers}}
+                  <div class="kss-modifier__header">
+                      <h3 class="kss-title kss-title--level-3">
+                          Default
+                      </h3>
+                  </div>
+              {{/if}}
+
             <div class="kss-modifier__defaultheader kss-style">
               <div class="kss-modifier__defaultinsertmarkuptext">
                 {{modifierInsertCode referenceURI ""}}
@@ -155,14 +163,6 @@
               {{{modifierFullscreenButton header (modifierInsertSection markup ../sections ../styleGuide ../options.source) referenceURI 'default' '' requirejs ../options.requirejs bodyclass ../options.bodyclass ../options.htmllang}}}
             </div>
 
-
-          {{#if modifiers}}
-              <div class="kss-modifier__header">
-                  <h3 class="kss-title kss-title--level-3">
-                      Default
-                  </h3>
-              </div>
-          {{/if}}
             <div class="kss-modifier__example {{modifierBodyClass bodyclass ../options.bodyclass}}">
               {{#kssWrapper wrapper ''}}
                 {{{modifierInsertSection example ../sections ../styleGuide ../options.source}}}
